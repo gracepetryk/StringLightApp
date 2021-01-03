@@ -6,23 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
+    <com.gracepetryk.StringLightControl.ColorWheelView
         android:id="@+id/colorWheelView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintDimensionRatio="w,1:1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bColorInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/iglgq" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/rColorInput"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="175"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constrainedWidth="false"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/bColorInput"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/gColorInput"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="175"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constrainedWidth="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bColorInput"
+        app:layout_constraintTop_toTopOf="@+id/bColorInput" />
+
+    <EditText
+        android:id="@+id/bColorInput"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -35,49 +72,8 @@
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toStartOf="@+id/gColorInput"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gColorInput"
-        app:layout_constraintWidth_max="100dp" />
-
-    <EditText
-        android:id="@+id/gColorInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="175"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toStartOf="@+id/bColorInput"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/rColorInput"
-        app:layout_constraintTop_toTopOf="@+id/bColorInput"
-        app:layout_constraintWidth_max="100dp" />
-
-    <EditText
-        android:id="@+id/bColorInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="175"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/gColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/colorPreviewView"
-        app:layout_constraintWidth_max="100dp" />
+        app:layout_constraintTop_toTopOf="@+id/rColorInput" />
 
     <TextView
         android:id="@+id/rInputLabel"
@@ -95,9 +91,9 @@
         android:layout_height="wrap_content"
         android:text="G"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/gColorInput"
-        app:layout_constraintStart_toStartOf="@+id/gColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/gColorInput" />
+        app:layout_constraintEnd_toEndOf="@+id/bColorInput"
+        app:layout_constraintStart_toStartOf="@+id/bColorInput"
+        app:layout_constraintTop_toBottomOf="@+id/bColorInput" />
 
     <TextView
         android:id="@+id/bInputLabel"
@@ -105,24 +101,15 @@
         android:layout_height="wrap_content"
         android:text="B"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/bColorInput"
-        app:layout_constraintStart_toStartOf="@+id/bColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/bColorInput" />
-
-    <ImageView
-        android:id="@+id/colorPreviewView"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/colorWheelView"
-        app:layout_constraintStart_toStartOf="@+id/colorWheelView"
-        app:layout_constraintTop_toBottomOf="@+id/colorWheelView"
-        tools:srcCompat="@color/purple_500" />
+        app:layout_constraintEnd_toEndOf="@+id/gColorInput"
+        app:layout_constraintStart_toStartOf="@+id/gColorInput"
+        app:layout_constraintTop_toBottomOf="@+id/gColorInput" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:checkedButton="@id/radioButton"
@@ -136,6 +123,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:minHeight="30dp"
             android:text="Solid" />
 
         <RadioButton
@@ -143,6 +131,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:minHeight="30dp"
             android:text="Fade" />
 
         <RadioButton
@@ -150,8 +139,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Jump"
-            android:textAlignment="viewStart" />
+            android:minHeight="30dp"
+            android:text="Jump" />
 
     </RadioGroup>
 
@@ -159,52 +148,45 @@
         android:id="@+id/textView14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottom_border"
         android:text="Light Mode"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/radioGroup" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="21dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Async"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2" />
+        app:layout_constraintEnd_toEndOf="@+id/switch2"
+        app:layout_constraintStart_toStartOf="@+id/switch2" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switch2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:includeFontPadding="false"
         android:text="On/Off"
         app:layout_constraintBottom_toTopOf="@+id/switch1"
-        app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/switch1"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="156dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toTopOf="@+id/switch2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gInputLabel"
+        tools:itemCount="15"
         tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/recycler_view_item_2"
+        tools:listitem="@layout/recycler_view_item"
         tools:spanCount="5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
