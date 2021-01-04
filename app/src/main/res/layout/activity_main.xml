@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bColorInput"
+        app:layout_constraintBottom_toTopOf="@+id/gColorInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
         android:textSize="24sp"
         app:layout_constrainedWidth="false"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toStartOf="@+id/bColorInput"
+        app:layout_constraintEnd_toStartOf="@+id/gColorInput"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,10 +52,10 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bColorInput"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bColorInput"
-        app:layout_constraintTop_toTopOf="@+id/bColorInput" />
+        app:layout_constraintStart_toEndOf="@+id/rColorInput"
+        app:layout_constraintTop_toTopOf="@+id/rColorInput" />
 
     <EditText
         android:id="@+id/bColorInput"
@@ -70,10 +70,10 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toStartOf="@+id/gColorInput"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rColorInput"
-        app:layout_constraintTop_toTopOf="@+id/rColorInput" />
+        app:layout_constraintStart_toEndOf="@+id/gColorInput"
+        app:layout_constraintTop_toTopOf="@+id/gColorInput" />
 
     <TextView
         android:id="@+id/rInputLabel"
@@ -91,9 +91,9 @@
         android:layout_height="wrap_content"
         android:text="G"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/bColorInput"
-        app:layout_constraintStart_toStartOf="@+id/bColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/bColorInput" />
+        app:layout_constraintEnd_toEndOf="@+id/gColorInput"
+        app:layout_constraintStart_toStartOf="@+id/gColorInput"
+        app:layout_constraintTop_toBottomOf="@+id/gColorInput" />
 
     <TextView
         android:id="@+id/bInputLabel"
@@ -101,9 +101,9 @@
         android:layout_height="wrap_content"
         android:text="B"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/gColorInput"
-        app:layout_constraintStart_toStartOf="@+id/gColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/gColorInput" />
+        app:layout_constraintEnd_toEndOf="@+id/bColorInput"
+        app:layout_constraintStart_toStartOf="@+id/bColorInput"
+        app:layout_constraintTop_toBottomOf="@+id/bColorInput" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -116,7 +116,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/switch1">
+        app:layout_constraintStart_toEndOf="@+id/asyncSwitch">
 
         <RadioButton
             android:id="@+id/radioButton"
@@ -124,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minHeight="30dp"
+            android:onClick="setModeSolid"
             android:text="Solid" />
 
         <RadioButton
@@ -132,6 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minHeight="30dp"
+            android:onClick="setModeFade"
             android:text="Fade" />
 
         <RadioButton
@@ -140,6 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minHeight="30dp"
+            android:onClick="setModeJump"
             android:text="Jump" />
 
     </RadioGroup>
@@ -149,29 +152,32 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Light Mode"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="@+id/radioGroup" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch1"
+        android:id="@+id/asyncSwitch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:onClick="toggleAsync"
         android:text="Async"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/switch2"
-        app:layout_constraintStart_toStartOf="@+id/switch2" />
+        app:layout_constraintEnd_toEndOf="@+id/onOffSwitch"
+        app:layout_constraintStart_toStartOf="@+id/onOffSwitch" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch2"
+        android:id="@+id/onOffSwitch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:includeFontPadding="false"
+        android:onClick="togglePower"
         android:text="On/Off"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
+        app:layout_constraintBottom_toTopOf="@+id/asyncSwitch"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -181,7 +187,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/switch2"
+        app:layout_constraintBottom_toTopOf="@+id/onOffSwitch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:itemCount="15"

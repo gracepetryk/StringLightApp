@@ -32,7 +32,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toStartOf="@+id/gColorInput"
+        app:layout_constraintEnd_toStartOf="@+id/bColorInput"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/colorPreviewView"
@@ -40,7 +40,7 @@
         app:layout_constraintWidth_max="100dp" />
 
     <EditText
-        android:id="@+id/bColorInput"
+        android:id="@+id/gColorInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -53,12 +53,12 @@
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/gColorInput"
-        app:layout_constraintTop_toTopOf="@+id/gColorInput"
+        app:layout_constraintStart_toEndOf="@+id/bColorInput"
+        app:layout_constraintTop_toTopOf="@+id/bColorInput"
         app:layout_constraintWidth_max="100dp" />
 
     <EditText
-        android:id="@+id/gColorInput"
+        android:id="@+id/bColorInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -68,7 +68,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toStartOf="@+id/bColorInput"
+        app:layout_constraintEnd_toStartOf="@+id/gColorInput"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/rColorInput"
         app:layout_constraintTop_toTopOf="@+id/rColorInput"
@@ -90,9 +90,9 @@
         android:layout_height="wrap_content"
         android:text="G"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/gColorInput"
-        app:layout_constraintStart_toStartOf="@+id/gColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/gColorInput" />
+        app:layout_constraintEnd_toEndOf="@+id/bColorInput"
+        app:layout_constraintStart_toStartOf="@+id/bColorInput"
+        app:layout_constraintTop_toBottomOf="@+id/bColorInput" />
 
     <TextView
         android:id="@+id/bInputLabel"
@@ -100,9 +100,9 @@
         android:layout_height="wrap_content"
         android:text="B"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/bColorInput"
-        app:layout_constraintStart_toStartOf="@+id/bColorInput"
-        app:layout_constraintTop_toBottomOf="@+id/bColorInput" />
+        app:layout_constraintEnd_toEndOf="@+id/gColorInput"
+        app:layout_constraintStart_toStartOf="@+id/gColorInput"
+        app:layout_constraintTop_toBottomOf="@+id/gColorInput" />
 
     <ImageView
         android:id="@+id/colorPreviewView"
