@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatDelegate
-import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -22,10 +20,6 @@ class MainActivity : AppCompatActivity() {
 
     private var async = false
 
-    init {
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // disable night mode
@@ -38,9 +32,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<ColorWheelView>(R.id.colorWheelView).addColorChangeListener(object : ColorChangeListener {
             override fun onColorChange(color: Int) {
                 // set mode to solid
-                findViewById<RadioButton>(R.id.radioButton).isChecked = true
+                val solidButton = findViewById<RadioButton>(R.id.solidRadio)
+                if (!solidButton.isChecked) {
+                    solidButton.isChecked = true
+                    setModeSolid(solidButton)
+                }
 
-                // extract individual colors using bitmasks
+                // extract individual colors
                 val r = color.and(0xFF0000).shr(16)
                 val g = color.and(0x00FF00).shr(8)
                 val b = color.and(0x0000FF)
@@ -129,8 +127,8 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<SwitchMaterial>(R.id.asyncSwitch).isChecked = async
 
-        val fadeButton = findViewById<RadioButton>(R.id.radioButton2)
-        val jumpButton = findViewById<RadioButton>(R.id.radioButton3)
+        val fadeButton = findViewById<RadioButton>(R.id.fadeRadio)
+        val jumpButton = findViewById<RadioButton>(R.id.jumpRadio)
 
         if (fadeButton.isChecked) {
             setModeFade(fadeButton)

@@ -76,7 +76,7 @@ class ColorWheelView @JvmOverloads constructor(
                             } finally {
                                 // poll every x ms if we're still touching
                                 if (inDrag) {
-                                    handler.postDelayed(this, 50)
+                                    handler.postDelayed(this, 70)
                                 }
                             }
                         }

@@ -112,14 +112,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:checkedButton="@id/radioButton"
+        android:checkedButton="@id/solidRadio"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/asyncSwitch">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/solidRadio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -128,7 +128,7 @@
             android:text="Solid" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/fadeRadio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -137,7 +137,7 @@
             android:text="Fade" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/jumpRadio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
